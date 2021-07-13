@@ -1,0 +1,619 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Entrega 2 - Proyecto de Riesgo ANID},
+  pdfauthor={Andrea Araya - Pablo Bellei - Luis Cuello - Gino Benedetti - Gabriela Ossa},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Entrega 2 - Proyecto de Riesgo ANID}
+\author{Andrea Araya - Pablo Bellei - Luis Cuello - Gino Benedetti -
+Gabriela Ossa}
+\date{2021-07-09}
+
+\begin{document}
+\maketitle
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[a4paper]{geometry}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{listings}
+
+\geometry{top=3 cm, bottom=3cm, left=1.75cm, right=1.75cm}
+
+\textbackslash begin\{document\}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{logoUC.jpg}
+\end{figure}
+
+\begin{center}
+    \begin{Large}\textbf{Informe de propuesta de proyecto de riesgo para ANID}\end{Large}
+
+\vspace*{0,2 cm}
+
+\textbf{Andrea Araya}, \textbf{Luis Cuello}, \textbf{Gino Benedetti}, \\ \textbf{Gabriela Ossa}, \textbf{Pablo Bellei}\\
+Diplomado Data Science\\
+Pontificia Universidad Católica de Chile, Facultad de Matemática
+\end{center}
+
+\vspace{5mm}
+
+\subsection{Descripción de la problemática}
+
+En el proceso de evaluación de los proyectos se identifican falencias en
+la ejecución, es decir, hay proyectos que presentan dificultades para
+cumplir con las exigencias académicas mínimas para su adecuado cierre,
+tales como: la presentación de un \textit{paper} o manuscrito académico
+aceptado, publicado o en prensa, el cumplimiento de las exigencias
+éticas a través de un informe de seguimiento ético y/o bioético, la
+realización de alguna actividad de divulgación científica, entre otras.
+
+\vspace{3mm}
+
+\noindent Por lo tanto, se vuelve necesario para la Subdirección diseñar
+un método que identifique patrones (variables) de no cumplimiento
+académico de los proyectos, y así poder crear un clasificador de riesgo,
+con la finalidad de alertar de forma temprana a los evaluadores, e
+implementar medidas de acompañamiento a los y las investigadoras para
+lograr el cumplimiento de las exigencias académicas y así, puedan
+finalizar exitosamente su investigación.
+
+\subsection{Preguntas a resolver}
+
+Las principales preguntas a responder serán: ¿Cuáles son los proyectos
+que están más propensos a presentar dificultades para culminar con éxito
+su investigación?, ¿Es posible asignar una clasificación de riesgo a los
+proyectos de acuerdo a ciertos patrones?, ¿Existen variables que ayuden
+a predecir el riesgo de no cumplimiento de un proyecto?
+
+\subsection{Hipótesis}
+
+El modelo analítico construido a partir de la información disponible,
+podrá predecir el incumplimiento académico de los proyectos a partir de
+la clasificación de riesgo asociada a ciertas variables.
+
+\section{Alcance del proyecto}
+
+La información se encuentra almacenada en una base de datos administrada
+por la Subdirección de Proyectos de Investigación. Se cuenta con datos
+de los proyectos aprobados desde el año 1991 hasta la fecha, lo que se
+encuentran desagregados por proyecto de investigación, en los tres
+principales fondos de investigación individual: Regular, Postdoctorado e
+Iniciación en investigación.
+
+\subsection{Variables}
+
+\begin{table}[h!]
+
+    \centering
+    \begin{tabular}{|p{5cm}|p{4.5cm}|p{6cm}|}
+         \hline
+         Item & Variables & Descripción de la variable \\ \hline
+         Identificación del proyecto & Folio & \\
+         & Año & \\
+         & Duración & \\
+         & Instrumento & Fondo de investigación (regular, postdoctorado o iniciación) \\
+         Identificación Institución & Nombre & \\
+         & Tipo & \\
+         & Principal & Institución principal asociada \\
+         & Secundaria & Institución secundaria asociada \\
+         & Región & \\
+         & Comuna & \\
+         
+         
+         Identificación  del investigador principal y asociados & RUT & \\
+         & Calidad del Investigador & Relación entre el investigador y el proyecto \\ 
+         &  Sexo & \\
+         &  Nacionalidad & \\
+         &  País & \\
+         & Comuna &  \\
+         & Institución & \\
+         Carta de Adjudicación & Puntaje de proyecto & \\
+         & Puntaje de corte & \\
+         Estado de proyecto & Fecha de inicio & \\
+         & Fecha de término & \\
+         & Estado proyecto & Resultado de la postulación \\
+         Presupuesto & Presupuesto solicitado & \\
+         & Presupuesto asignado & \\
+         Bioética & Estado bioética  & Estado de cumplimiento bioético  \\
+         & Fecha revisado & \\
+         & Fecha actualización & \\  
+         Proyecto & Disciplina &  Tipo de disciplina según OCDE\\
+         & Área & Área del conocimiento\\
+         & Cambio de disciplina & \\
+         Grupo de evaluación & Código de grupo & Grupo de evaluadores del informe académico \\
+         & Código de área del grupo & \\
+         Situaciones especiales & Cambio institución & \\
+         &  Modificación académica & \\
+
+         Informe académico & Estado etapa & Resultado de la evaluación al informe \\
+         
+         \hline
+    \end{tabular}
+    \label{tab:my_label}
+\end{table}
+
+\newpage
+
+\noindent Las variables se encuentran en una base de datos relacional y
+se necesita una revisión de esta para poder extraer muestras,
+transformarlas y poder analizarlas.
+
+\vspace{3mm}
+
+\noindent A continuación se presenta un modelo relacional de las
+variables.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Diagrama Base.png}
+    \caption{Modelo relacional de las variables}
+    \label{fig:modelo relacional}
+\end{figure}
+
+\section{Descripción de metodología}
+
+En la Subdirección de Proyectos de Investigación existe información
+respecto de los proyectos adjudicados, la cual se recolecta a través de
+los procesos de postulación, evaluación, adjudicación y seguimiento
+técnico. A partir de esta información histórica, se buscará identificar
+las variables que puedan incidir en el incumplimiento académico de un
+proyecto y de esta manera diseñar un modelo de clasificación de riesgo.
+
+\vspace{3mm}
+
+\noindent Esta información se tratará de manera anónima para resguardar
+la confidencialidad de los/as investigadores/as, para estos efectos se
+considera la transformación de las variables de identificación
+originales (RUT, folio) a una nueva variable de identificación para
+efectos de procesamiento de la información.
+
+\vspace{3mm}
+
+\noindent Para abordar este proyecto se utilizará el método CRISP-DM
+(Cross Industry Standard Process for Data Mining), que desglosa el
+proceso en seis fases: 1) comprensión del negocio, 2) comprensión de los
+datos, 3) preparación de los datos, 4) modelado, 5) evaluación de los
+resultados y 6) puesta en marcha. En las primeras etapas, los esfuerzos
+estarán puestos en conocer y comprender los mecanismos de control y
+seguimiento de los proyectos adjudicados, para lograr identificar las
+variables que pueden ser utilizadas para evaluar el riesgo de
+incumplimiento. Una vez identificadas las variables, se procederá a la
+preparación de los datos para su posterior análisis y modelación.
+Finalmente, se evaluarán los resultados respecto de los objetivos
+iniciales y la aplicación de la herramienta por parte de los
+profesionales de la Subdirección.
+
+\vspace{3mm}
+
+\noindent Los datos necesarios para desarrollar este proyecto serán
+obtenidos directamente desde la Subdirección. Estos se encuentran
+almacenados en una base de datos institucional y el periodo disponible
+es desde el año 1991 a la fecha. En este momento, se cuenta con la
+autorización para llevar a cabo esta iniciativa y utilizar los datos
+disponibles.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{esquema.jpeg}
+    \caption{Modelo relacional de la metodología del proyecto}
+    \label{fig:my_label}
+\end{figure}
+
+\hypertarget{anexo}{%
+\subsection{Anexo}\label{anexo}}
+
+\hypertarget{carta-gantt}{%
+\subsubsection{Carta Gantt}\label{carta-gantt}}
+
+\includegraphics{CartaGantt.jpeg}
+
+\hypertarget{segundo-reporte}{%
+\subsection{SEGUNDO REPORTE}\label{segundo-reporte}}
+
+\hypertarget{comprensiuxf3n-del-negocio}{%
+\subsection{1. Comprensión del
+negocio}\label{comprensiuxf3n-del-negocio}}
+
+El ciclo de un proyecto que postula a los instrumentos de FONDECYT de la
+ANID se grafica en la siguiente imagen. Se inicia con el proceso de
+postulación, seguido por la evaluación y posterior adjudicación. Si un
+proyecto resulta adjudicado, entonces entra a un proceso de seguimiento,
+el cual se estructura por dos aspectos: el aspecto técnico y el aspecto
+financiero. En este trabajo nos acotaremos al seguimiento técnico.
+
+\includegraphics{Flujo Gral.jpg}
+
+Parte de la evaluación técnica incluye la elaboración y entrega de un
+informe académico, el cual es evaluado por la ANID, y a partir de su
+resultado se puede clasificar el proyecto como `aprobado', `rechazado' o
+`en proceso'. A continuación se presenta un flujo con los detalles
+respecto de la revisión y fallo de los aspectos comprometidos.
+
+\includegraphics{Eval Inf.jpg}
+
+\hypertarget{comprensiuxf3n-de-los-datos}{%
+\subsection{2. Comprensión de los
+datos}\label{comprensiuxf3n-de-los-datos}}
+
+Los datos están estructurados en nueve tablas, todas disponibles en
+formato excel. A continuación, se identifica cada tabla, con la cantidad
+de variables y registros que contienen. Previamente, cada tabla fue
+innominada a requerimiento de la Institución. En total existen 55
+variables únicas. La \emph{primary key} de todas las tablas corresponde
+al código que identifica a cada proyecto, denominado
+\texttt{cod\_folio}.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Nombre tabla & Número de variables & Número de registros \\
+\midrule
+\endhead
+Data general & 25 & 14.850 \\
+Etapa & 8 & 47.253 \\
+Bioetica & 11 & 6.010 \\
+Disciplinas & 13 & 4.093 \\
+Miembros & 8 & 3.198 \\
+Monto & 5 & 14.874 \\
+Situacion especial & 13 & 4.221 \\
+Cambios\_a & 9 & 40.741 \\
+Cambios\_b & 8 & 40.083 \\
+\bottomrule
+\end{longtable}
+
+Inicialmente trabajaremos con dos tablas, una que contiene los datos
+generales del proyecto denominada \texttt{data\_gral} y otra llamada
+\texttt{etapa}, que incluye datos específicos sobre el avance del
+proyecto.
+
+\begin{itemize}
+\tightlist
+\item
+  La tabla \texttt{data\_gral} incluye las siguientes variables: año
+  proyecto, duración, fecha de término, tipo de concurso, disciplina,
+  universidad, entre otras.
+\item
+  La tabla \texttt{etapa} incluye las siguientes variables: fecha
+  actualización del estado de etapa, el estado (aprobado, rechazado o en
+  ejecución), entre otras.
+\end{itemize}
+
+En la siguiente figura se muestra un modelo relacional para los datos.
+
+\includegraphics{tabla_2.png}
+
+\hypertarget{preparaciuxf3n-de-los-datos}{%
+\subsection{3. Preparación de los
+datos}\label{preparaciuxf3n-de-los-datos}}
+
+\hypertarget{carga-y-limpieza-de-datos}{%
+\subsubsection{3.1 Carga y limpieza de
+datos}\label{carga-y-limpieza-de-datos}}
+
+Se utilizaron las siguientes funciones para la carga y limpieza de
+datos:
+
+\begin{itemize}
+\tightlist
+\item
+  Carga de datos : \texttt{readxl::read\_excel}
+\item
+  Visualización formato variables : \texttt{dplyr::glimpse}
+\item
+  Visualización de datos faltantes : \texttt{naniar::vis\_miss}
+\end{itemize}
+
+Los principales problemas detectados en la limpieza y su solución se
+presentan a continuación:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Problema & Solucion \\
+\midrule
+\endhead
+Variables caracter cargan como númerica & Se aplica función
+\texttt{as.character} \\
+Nombres campos con espacios & Se aplica función
+\texttt{janitor::clean\_names} \\
+Entradas con datos faltantes & Se aplica \texttt{na.omit} \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{limpieza-tabla-data-general}{%
+\subsubsection{3.1.1 Limpieza tabla Data
+General}\label{limpieza-tabla-data-general}}
+
+A continuación se muestra el retorno de las funciones
+\texttt{dplyr::glimpse} y \texttt{naniar::vis\_miss} aplicadas a la
+tabla \texttt{data\_gral} depués de la limpieza.
+
+\begin{verbatim}
+## Rows: 14,850
+## Columns: 25
+## $ cod_folio            <chr> "1061", "1062", "1063", "1064", "1065", "1066", "~
+## $ sexo                 <chr> "M", "M", "F", "F", "M", "M", "M", "M", "M", "M",~
+## $ c_t_relac            <chr> "1", "1", "1", "1", "1", "1", "1", "1", "1", "1",~
+## $ gl_nacion            <chr> "CHILE", "CHILE", "CHILE", "CHILE", "CHILE", "CHI~
+## $ c_region_del_ir      <chr> NA, NA, "13", "12", "13", NA, "13", "13", "13", "~
+## $ cod_rut              <chr> "1978", "1910", "1256", "3501", "1614", "1576", "~
+## $ gl_est_proy          <chr> "APROBADO", "APROBADO", "APROBADO", "APROBADO", "~
+## $ f_ini_proy           <dttm> 2006-03-15, 2006-03-15, 2006-03-15, 2006-03-15, ~
+## $ f_fin_proy           <dttm> 2009-03-15, 2008-03-15, 2009-03-15, 2010-03-15, ~
+## $ duracion             <dbl> 3, 2, 3, 4, 3, 3, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 4~
+## $ gl_tiproy            <chr> "REGULAR", "REGULAR", "REGULAR", "REGULAR", "REGU~
+## $ agno_concurso        <dbl> 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2~
+## $ titulo               <chr> "ESTUDIO DE LA RESPUESTA A EMBUTICION DE ACEROS D~
+## $ grupo_estudoop       <chr> "INGENIERIA 1", "CS. ECONOM/ADMI", "SOCIOLOGIA CS~
+## $ disciplina           <chr> "INGENIERIA DE MATERIALES", "FINANZAS", "CAMBIO S~
+## $ gr_rel_disc          <chr> "1", "1", "1", "1", "1", "1", "1", "1", "1", "1",~
+## $ c_disciplina         <chr> "86", "217", "164", "159", "43", "93", "36", "36"~
+## $ sector_aplicacion    <chr> "TECNICAS DE MANUFACTURAS Y DE PROCESOS.", "CONOC~
+## $ c_region_ejecucion   <chr> "13", "13", "13", "12", "13", "13", "13", "13", "~
+## $ institucion          <chr> "UNIV.DE SANTIAGO DE CHILE", "UNIV.ADOLFO IBANEZ"~
+## $ facultad             <chr> "FAC.DE INGENIERIA", "ESCUELA DE NEGOCIOS-SANTIAG~
+## $ depto_unidad         <chr> "DEPTO.ING. METALURGICA", "ESCUELA DE NEGOCIOS-SA~
+## $ c_region_institucion <chr> "13", "13", "13", "12", "13", "13", "13", "13", "~
+## $ f_nacimiento         <dttm> 1960-02-01, 1972-09-08, 1946-11-26, 1972-09-08, ~
+## $ miles_de_ppto_asig   <dbl> 32543, 16802, 28100, 124425, 116028, 45715, 84791~
+\end{verbatim}
+
+\includegraphics{Repo-2_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+Notar los siguientes aspectos relevantes: a) que en total se
+identificaron 14.850 proyectos para el periodo 2006-2021, b) que pueden
+ser clasificados por tipo de proyecto \texttt{gl\_tiproy} (iniciación,
+postdoctorado y regular), y c) que la duración de cada uno puede variar
+entre uno y cuatros años, los cuales denominaremos etapas. \footnote{Recordar
+  que la tabla etapa actualiza el estado del proyecto anualmente}
+
+\hypertarget{limpieza-tabla-etapa}{%
+\subsubsection{3.1.1 Limpieza tabla Etapa}\label{limpieza-tabla-etapa}}
+
+La tabla \texttt{etapa} incluye tantas entradas con el mismo número de
+folio como años de duración del proyecto. Por ejemplo, un mismo proyecto
+puede aparecer hasta cuatro veces (duró cuatro años) en dicha tabla, con
+dos entradas `en ejecucion', una `rechazado' y otra `aprobado', pero
+todas con diferentes fechas de actualización. Es por ello, que primero
+se tuvo que eliminar todos excepto el último registro por código de
+folio. Y también eliminar las filas con datos faltantes, porque no se
+sabe si esos proyectos se repiten dentro de la tabla pero para otro año.
+
+Además, fue necesario reclasificar las categorías que toma la variable
+\texttt{gl\_est\_etapa}, dado que tiene 24 categorías y estas no son
+informativas por si mismas. De este modo, la nueva variable
+\texttt{etapas\_agrupadas} solo toma tres valores \texttt{APROBADO},
+\texttt{RECHAZADO} o \texttt{EN\ PROCESO}. Se entenderá por:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{APROBADO}: cumple con las exigencias académicas establecidas
+  en conformidad a las bases del concurso.
+\item
+  \texttt{RECHAZADO}: no cumple con las exigencias académicas
+  establecidas en conformidad a las bases del concurso, por lo tanto, se
+  exigen rectificaciones que puedan cambiar esta situación.
+\item
+  \texttt{EN\ PROCESO}: aquellos proyectos vigentes que se encuentran en
+  ejecución, cuyo informe académico se encuentra recibido o en
+  evaluación.
+\end{itemize}
+
+Por último, se añade una columna tiempo que equivale a la diferencia de
+tiempo límite inicial del proyecto menos el tiempo que tomó el proyecto
+en terminar.
+
+A continuación se muestra el retorno de las funciones
+\texttt{dplyr::glimpse} y \texttt{naniar::vis\_miss} aplicadas a la
+tabla \texttt{etapa} después de la limpieza.
+
+\begin{verbatim}
+## Rows: 25,016
+## Columns: 10
+## $ cod_folio        <chr> "1061", "1061", "1061", "1062", "1062", "1063", "1063~
+## $ agno_etapa       <dbl> 2006, 2007, 2008, 2006, 2007, 2006, 2007, 2008, 2006,~
+## $ c_t_proyecto     <chr> "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"~
+## $ gl_est_etapa     <chr> "APROBADA", "APROBADA", "APROBADA", "APROBADA", "APRO~
+## $ f_est_etapa      <dttm> 2007-05-07, 2008-04-11, 2009-04-14, 2007-05-07, 2012~
+## $ duracion         <dbl> 3, 3, 3, 2, 2, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3,~
+## $ f_fin_proy       <dttm> 2009-03-15, 2009-03-15, 2009-03-15, 2008-03-15, 2008~
+## $ gl_grup_est      <chr> "INGENIERIA 1", "INGENIERIA 1", "INGENIERIA 1", "CS. ~
+## $ tiempo           <drtn> 678 days, 338 days, -30 days, 313 days, -1453 days, ~
+## $ etapas_agrupadas <chr> "APROBADO", "APROBADO", "APROBADO", "APROBADO", "APRO~
+\end{verbatim}
+
+\includegraphics{Repo-2_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+Luego de la limpieza, la tabla \texttt{etapa} está lista para ser usada
+más adelante.
+
+\hypertarget{anuxe1lsis-exploratorio}{%
+\subsubsection{4. Análsis Exploratorio}\label{anuxe1lsis-exploratorio}}
+
+Primero, se grafican las variables de la tabla \texttt{data\_gral} que
+se creen importantes, con la finalidad de ver cómo se relacionan entre
+sí. Estas son el número total de proyectos por año, desagregados por
+tipo de proyecto y duración.
+
+\includegraphics{Repo-2_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+Luego, mirando sólo la tabla \texttt{etapa}, se quiere conocer la
+frecuencia según la clasificación estado de proyecto. Esto es:
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Var1 & Freq \\
+\midrule
+\endhead
+APROBADO & 10189 \\
+EN PROCESO & 173 \\
+RECHAZADO & 642 \\
+\bottomrule
+\end{longtable}
+
+En este punto, se ha extraído información relevante sobre ambas tablas
+por separado, pero ha llegado el momento de unirlas y responder
+preguntas más interesantes. Entonces, se crea una nueva tabla llamada
+\texttt{etapas\_gral}, que es el resultado de un \emph{inner\_join}
+entre \texttt{data\_gral}y \texttt{etapa}.
+
+\emph{Verificar de supuestos:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Los proyectos en la categoría de rechazado se exceden en la duración
+  oficial del proyecto.
+\end{enumerate}
+
+Para verificar el supuesto, se realizó una grafica del delta de tiempo
+desde el término de la última etapa del proyecto versus la fecha de
+termino del proyecto. Tiempo estimado en días. Además, se muestran los
+principales estadísticos de resumen.
+
+\includegraphics{Repo-2_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{longtable}[]{@{}llrrr@{}}
+\toprule
+gl\_tiproy & etapas\_agrupadas & mean\_tiempo & max\_tiempo &
+std\_tiempo \\
+\midrule
+\endhead
+INICIACION & APROBADO & 304.67568 & 722 & 225.61522 \\
+INICIACION & EN PROCESO & 46.07143 & 349 & 99.53157 \\
+INICIACION & RECHAZADO & 310.07692 & 699 & 151.36893 \\
+POSTDOCTORADO & APROBADO & 266.60684 & 861 & 220.01477 \\
+POSTDOCTORADO & EN PROCESO & 306.50000 & 334 & 19.77372 \\
+POSTDOCTORADO & RECHAZADO & 294.82857 & 671 & 138.42124 \\
+REGULAR & APROBADO & 341.77620 & 1087 & 169.83027 \\
+REGULAR & EN PROCESO & 286.83784 & 669 & 117.39878 \\
+REGULAR & RECHAZADO & 305.00000 & 638 & 125.81345 \\
+\bottomrule
+\end{longtable}
+
+Este supuesto no muestra una clara relación entre exceso en el tiempo de
+fin de proyecto, dado que muchos proyectos aprobados exceden por mucho
+la fecha límite.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Las macrozona de Chile influye en la posibilidad de caer en
+  incumplimiento.
+\end{enumerate}
+
+Para verificar la hipótesis, se categorizaron las regiones de ejecución
+del proyecto en cuatro zonas. La tabla de análisis contiene 10.404
+proyectos y se presenta a continuación.
+
+\begin{verbatim}
+##             
+##              norte centro centro-sur  sur
+##   APROBADO     322   7393       1378 1096
+##   EN PROCESO     6    126         23   18
+##   RECHAZADO     20    453        100   69
+\end{verbatim}
+
+¿Será una función del tiempo?
+
+\begin{verbatim}
+##       
+##        APROBADO EN PROCESO RECHAZADO
+##   2006      0.3        0.0       0.0
+##   2007      1.3        0.0       0.0
+##   2008      3.9        0.0       0.1
+##   2009      4.9        0.0       0.1
+##   2010      5.1        0.0       0.1
+##   2011      5.1        0.0       0.2
+##   2012      6.2        0.0       0.1
+##   2013      7.3        0.0       0.1
+##   2014      8.5        0.0       0.2
+##   2015      9.1        0.0       0.5
+##   2016      9.9        0.0       0.6
+##   2017      8.9        0.0       0.9
+##   2018      8.8        0.1       1.0
+##   2019      7.3        0.5       1.0
+##   2020      6.0        0.9       0.8
+\end{verbatim}
+
+\end{document}

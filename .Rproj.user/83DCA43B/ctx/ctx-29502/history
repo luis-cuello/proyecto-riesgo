@@ -1,0 +1,512 @@
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur"))
+proy_reg %>%
+mutate(case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur"))
+View(proy_reg)
+proy_reg <- proy_reg %>%
+mutate(case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur"))
+View(proy_reg)
+View(proy_reg)
+table(proy_reg$etapas_agrupadas, proy_reg$`case_when(...)`)
+proy_reg <- proy_reg %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur"))
+View(proy_reg)
+table(proy_reg$etapas_agrupadas, proy_reg$zona)
+View(proy_reg)
+View(proy_reg)
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur"))
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur")) %>%
+arrange(zona, c("norte", "centro", "centro-sur", "sur"))
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur")) %>%
+arrange(zona, levels = factor("norte", "centro", "centro-sur", "sur"))
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur")) %>%
+arrange(zona, levels = c("norte", "centro", "centro-sur", "sur"))
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur")) %>%
+arrange(zona, levels("norte", "centro", "centro-sur", "sur"))
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur")) %>%
+arrange(zona, levels(c("norte", "centro", "centro-sur", "sur")))
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+factor(data_gral$zona, levels = c("norte", "centro", "centro-sur", "sur"))
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion <= 3 ~ "norte",
+c_region_ejecucion == 15 ~ "norte",
+c_region_ejecucion == 4 |
+c_region_ejecucion == 5 |
+c_region_ejecucion == 13 ~ "centro",
+c_region_ejecucion == 6 |
+c_region_ejecucion == 7 |
+c_region_ejecucion == 8 ~ "centro-sur",
+c_region_ejecucion == 9 |
+c_region_ejecucion == 14 |
+c_region_ejecucion == 10 |
+c_region_ejecucion == 11 |
+c_region_ejecucion == 12 ~ "sur")) %>%
+mutate(zona = factor(zona, levels=c("norte", "centro", "centro-sur", "sur")))
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+data_gral_2 %>%
+group_by(zona, c_region_ejecucion) %>%
+summarise(Nro = n_distinct(cod_folio))
+data_gral_2 <- data_gral_2 %>%
+mutate(zona = case_when(c_region_ejecucion %in% c(1,2,3,15) ~ "norte",
+c_region_ejecucion %in% c(4, 5, 13) ~ "centro",
+c_region_ejecucion %in% c(6, 7, 8) ~ "centro-sur",
+c_region_ejecucion %in% c(9, 14, 10, 11, 12)~ "sur"))%>%
+mutate(zona = factor(zona, levels=c("norte", "centro", "centro-sur", "sur")))
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+data_gral_2 %>%
+group_by(zona, c_region_ejecucion) %>%
+summarise(Nro = n_distinct(cod_folio))
+glimpse(data_prueba)
+install.packages("Hmisc")
+Hmisc::describe(data_gral_2)
+library(tidyverse)
+library(readxl)
+library(janitor)
+data_gral = read_excel('Data/Data_gral_01.xlsx')
+etapa = read_excel('Data/Hist_etapa_2006_06.xlsx')
+bioetica = read_excel('Data/Bioetica_02.xlsx')
+disciplinas = read_excel('Data/Cambios_disciplinas_03.xlsx')
+miembros_ge = read_excel('Data/GE_miembros_2006_05.xlsx')
+monto = read_excel('Data/Monto_solicitado_07.xlsx')
+situaciones_esp = read_excel('Data/Situacion_especiales_08.xlsx')
+cambios_a = read_excel('Data/carta_notas_04.xlsx', sheet = "carat")
+cambios_b = read_excel('Data/carta_notas_04.xlsx', sheet = "Nota")
+data_gral$cod_folio <- as.character(data_gral$cod_folio)
+data_gral$c_t_relac <- as.character(data_gral$c_t_relac)
+data_gral$c_region_del_ir <- as.character(data_gral$c_region_del_ir)
+data_gral <- janitor::clean_names(data_gral)
+etapa <- janitor::clean_names(etapa)
+data_gral$cod_folio <- as.character(data_gral$cod_folio)
+data_gral$c_t_relac <- as.character(data_gral$c_t_relac)
+data_gral$c_region_del_ir <- as.character(data_gral$c_region_del_ir)
+data_gral$cod_rut <- as.character(data_gral$cod_rut)
+data_gral$gr_rel_disc <- as.character(data_gral$gr_rel_disc)
+data_gral$c_disciplina <- as.character(data_gral$c_disciplina)
+data_gral$c_region_ejecucion <- as.character(data_gral$c_region_ejecucion)
+data_gral$c_region_institucion <- as.character(data_gral$c_region_institucion)
+etapa$cod_folio <- as.character(etapa$cod_folio)
+etapa$c_t_proyecto <- as.character(etapa$c_t_proyecto)
+library(tidyverse)
+library(readxl)
+library(janitor)
+data_gral = read_excel('Data/Data_gral_01.xlsx')
+etapa = read_excel('Data/Hist_etapa_2006_06.xlsx')
+data_gral <- janitor::clean_names(data_gral)
+etapa <- janitor::clean_names(etapa)
+data_gral$cod_folio <- as.character(data_gral$cod_folio)
+data_gral$c_t_relac <- as.character(data_gral$c_t_relac)
+data_gral$c_region_del_ir <- as.character(data_gral$c_region_del_ir)
+data_gral$cod_rut <- as.character(data_gral$cod_rut)
+data_gral$gr_rel_disc <- as.character(data_gral$gr_rel_disc)
+data_gral$c_disciplina <- as.character(data_gral$c_disciplina)
+data_gral$c_region_ejecucion <- as.character(data_gral$c_region_ejecucion)
+data_gral$c_region_institucion <- as.character(data_gral$c_region_institucion)
+etapa$cod_folio <- as.character(etapa$cod_folio)
+etapa$c_t_proyecto <- as.character(etapa$c_t_proyecto)
+etapa <- etapa %>%
+mutate(tiempo = difftime(f_fin_proy, f_est_etapa, units = "day")) %>%
+na.omit()
+etapa2 <- etapa %>%
+group_by(cod_folio) %>%
+summarise(agno_etapa = max(agno_etapa))
+etapa_gral = inner_join(etapa2, etapa, by = c('cod_folio', 'agno_etapa'))
+aprobados <- c('APROBADA',
+'APROB. RATIF.')
+en_proceso <- c('I-T EN EVALUACI',
+'I-T EN REEVALUA',
+'INF.ADICI.RECIB',
+'INF. TEC. RECIB')
+rechazados <- c('SOLIC.INF.ADIC',
+'PENDIENTE CONSE')
+data_prueba <- etapa_gral  %>%
+filter(gl_est_etapa %in% aprobados |
+gl_est_etapa %in% en_proceso |
+gl_est_etapa %in% rechazados|
+gl_est_etapa == 'EN EJECUCION'
+& f_fin_proy <= '2021-03-31')  %>%
+mutate(etapas_agrupadas =
+case_when(gl_est_etapa %in% aprobados ~ 'APROBADO',
+gl_est_etapa %in% en_proceso ~ 'EN PROCESO',
+gl_est_etapa %in% rechazados ~ 'RECHAZADO',
+gl_est_etapa == 'EN EJECUCION' ~ 'RECHAZADO'))
+graf <- data_prueba%>%
+group_by(etapas_agrupadas, agno_etapa)%>%
+summarise(Nro = n_distinct(cod_folio))
+View(graf)
+data_prueba%>%
+group_by(etapas_agrupadas, agno_etapa)%>%
+summarise(Nro = n_distinct(cod_folio))
+tabla <- data_prueba%>%
+group_by(etapas_agrupadas, agno_etapa)%>%
+summarise(Nro = n_distinct(cod_folio))
+View(tabla)
+separate(tabla, agno_etapa, etapas_agrupadas)
+View(tabla)
+separate(tabla, etapas_agrupadas)
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+data_gral_2 = inner_join(data_prueba, data_gral, by = c('cod_folio'))
+View(data_gral_2)
+names(data_gral_2)
+View(data_prueba)
+View(data_gral_2)
+View(data_gral_2)
+library(tidyverse)
+library(readxl)
+library(janitor)
+data_gral = read_excel('Data/Data_gral_01.xlsx')
+etapa = read_excel('Data/Hist_etapa_2006_06.xlsx')
+data_gral <- janitor::clean_names(data_gral)
+etapa <- janitor::clean_names(etapa)
+data_gral$cod_folio <- as.character(data_gral$cod_folio)
+data_gral$c_t_relac <- as.character(data_gral$c_t_relac)
+data_gral$c_region_del_ir <- as.character(data_gral$c_region_del_ir)
+data_gral$cod_rut <- as.character(data_gral$cod_rut)
+data_gral$gr_rel_disc <- as.character(data_gral$gr_rel_disc)
+data_gral$c_disciplina <- as.character(data_gral$c_disciplina)
+data_gral$c_region_ejecucion <- as.character(data_gral$c_region_ejecucion)
+data_gral$c_region_institucion <- as.character(data_gral$c_region_institucion)
+etapa$cod_folio <- as.character(etapa$cod_folio)
+etapa$c_t_proyecto <- as.character(etapa$c_t_proyecto)
+etapa <- etapa %>%
+mutate(tiempo = difftime(f_fin_proy, f_est_etapa, units = "day")) %>%
+na.omit()
+etapa2 <- etapa %>%
+group_by(cod_folio) %>%
+summarise(agno_etapa = max(agno_etapa))
+etapa_gral = inner_join(etapa2, etapa, by = c('cod_folio', 'agno_etapa'))
+aprobados <- c('APROBADA',
+'APROB. RATIF.')
+en_proceso <- c('I-T EN EVALUACI',
+'I-T EN REEVALUA',
+'INF.ADICI.RECIB',
+'INF. TEC. RECIB')
+rechazados <- c('SOLIC.INF.ADIC',
+'PENDIENTE CONSE')
+data_prueba <- etapa_gral  %>%
+filter(gl_est_etapa %in% aprobados |
+gl_est_etapa %in% en_proceso |
+gl_est_etapa %in% rechazados|
+gl_est_etapa == 'EN EJECUCION'
+& f_fin_proy <= '2021-03-31')  %>%
+mutate(etapas_agrupadas =
+case_when(gl_est_etapa %in% aprobados ~ 'APROBADO',
+gl_est_etapa %in% en_proceso ~ 'EN PROCESO',
+gl_est_etapa %in% rechazados ~ 'RECHAZADO',
+gl_est_etapa == 'EN EJECUCION' ~ 'RECHAZADO'))
+View(data_prueba)
+View(data_gral)
+data_gral_2 = inner_join(data_prueba, data_gral[-9, -10], by = c('cod_folio'))
+View(data_gral_2)
+View(data_gral)
+data_gral[-9, -10]
+View(data_gral)
+View(data_gral)
+data_gral[ c(-9, -10)]
+library(tidyverse)
+library(readxl)
+library(janitor)
+data_gral = read_excel('Data/Data_gral_01.xlsx')
+etapa = read_excel('Data/Hist_etapa_2006_06.xlsx')
+data_gral <- janitor::clean_names(data_gral)
+etapa <- janitor::clean_names(etapa)
+data_gral$cod_folio <- as.character(data_gral$cod_folio)
+data_gral$c_t_relac <- as.character(data_gral$c_t_relac)
+data_gral$c_region_del_ir <- as.character(data_gral$c_region_del_ir)
+data_gral$cod_rut <- as.character(data_gral$cod_rut)
+data_gral$gr_rel_disc <- as.character(data_gral$gr_rel_disc)
+data_gral$c_disciplina <- as.character(data_gral$c_disciplina)
+data_gral$c_region_ejecucion <- as.character(data_gral$c_region_ejecucion)
+data_gral$c_region_institucion <- as.character(data_gral$c_region_institucion)
+etapa$cod_folio <- as.character(etapa$cod_folio)
+etapa$c_t_proyecto <- as.character(etapa$c_t_proyecto)
+etapa <- etapa %>%
+mutate(tiempo = difftime(f_fin_proy, f_est_etapa, units = "day")) %>%
+na.omit()
+etapa2 <- etapa %>%
+group_by(cod_folio) %>%
+summarise(agno_etapa = max(agno_etapa))
+etapa_gral = inner_join(etapa2, etapa, by = c('cod_folio', 'agno_etapa'))
+aprobados <- c('APROBADA',
+'APROB. RATIF.')
+en_proceso <- c('I-T EN EVALUACI',
+'I-T EN REEVALUA',
+'INF.ADICI.RECIB',
+'INF. TEC. RECIB')
+rechazados <- c('SOLIC.INF.ADIC',
+'PENDIENTE CONSE')
+data_prueba <- etapa_gral  %>%
+filter(gl_est_etapa %in% aprobados |
+gl_est_etapa %in% en_proceso |
+gl_est_etapa %in% rechazados|
+gl_est_etapa == 'EN EJECUCION'
+& f_fin_proy <= '2021-03-31')  %>%
+mutate(etapas_agrupadas =
+case_when(gl_est_etapa %in% aprobados ~ 'APROBADO',
+gl_est_etapa %in% en_proceso ~ 'EN PROCESO',
+gl_est_etapa %in% rechazados ~ 'RECHAZADO',
+gl_est_etapa == 'EN EJECUCION' ~ 'RECHAZADO'))
+data_gral_2 = inner_join(data_prueba, data_gral[ c(-9, -10)], by = c('cod_folio'))
+View(data_gral_2)
+tabla <- data_gral_2%>%
+group_by(agno_etapa, etapas_agrupadas)%>%
+summarise(Nro = n_distinct(cod_folio))
+View(tabla)
+View(data_gral_2)
+data_gral_2$agno_etapa <- as.character(data_prueba$agno_etapa)
+data_gral_2$tiempo <- as.numeric(data_prueba$tiempo)
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo))+
+geom_boxplot()+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+View(data_gral_2)
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo, fill = etapas_agrupadas))+
+geom_point()+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo))+
+geom_point(fill = etapas_agrupadas)+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo))+
+geom_point(color = etapas_agrupadas)+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo))+
+geom_point()+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo))+
+geom_point(colour = factor(etapas_agrupadas))+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo))+
+geom_point(colour = etapas_agrupadas)+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(data_gral_2, aes(x= agno_etapa, y = tiempo))+
+geom_point(aes(colour = etapas_agrupadas))+
+labs(x = "",
+y = "Delta de tiempo (días)")+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+data_gral_2 <- data_gral_2 %>%
+mutate(zona =
+case_when(c_region_ejecucion %in% c(1,2,3,15) ~ "norte",
+c_region_ejecucion %in% c(4, 5, 13) ~ "centro",
+c_region_ejecucion %in% c(6, 7, 8) ~ "centro-sur",
+c_region_ejecucion %in% c(9, 14, 10, 11, 12)~ "sur"))%>%
+mutate(zona = factor(zona, levels=c("norte",
+"centro",
+"centro-sur",
+"sur")))
+View(data_gral_2)
+table(data_gral_2$agno_etapa, data_gral_2$etapas_agrupadas)
+### tabla de contingencia
+data_gral_2 %>%
+group_by(zona, c_region_ejecucion) %>%
+summarise(Nro = n_distinct(cod_folio))
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+Hmisc::describe(data_gral_2, exclude.missing=TRUE, digits=4,
+listunique=0, listnchar=12,
+weights=NULL, normwt=FALSE, minlength=NUL)
+table(data_gral_2$etapas_agrupadas, data_gral_2$zona)
+data_gral_2 %>%
+group_by(zona, c_region_ejecucion) %>%
+summarise(Nro = n_distinct(cod_folio))
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(knitr)
+data_gral = read_excel('Data/Data_gral_01.xlsx')
+etapa = read_excel('Data/Hist_etapa_2006_06.xlsx')
+data_gral <- janitor::clean_names(data_gral)
+etapa <- janitor::clean_names(etapa)
+data_gral$cod_folio <- as.character(data_gral$cod_folio)
+data_gral$c_t_relac <- as.character(data_gral$c_t_relac)
+data_gral$c_region_del_ir <- as.character(data_gral$c_region_del_ir)
+data_gral$cod_rut <- as.character(data_gral$cod_rut)
+data_gral$gr_rel_disc <- as.character(data_gral$gr_rel_disc)
+data_gral$c_disciplina <- as.character(data_gral$c_disciplina)
+data_gral$c_region_ejecucion <- as.character(data_gral$c_region_ejecucion)
+data_gral$c_region_institucion <- as.character(data_gral$c_region_institucion)
+dplyr::glimpse(data_gral)
+data_gral %>% naniar::vis_miss()
+etapa$cod_folio <- as.character(etapa$cod_folio)
+etapa$c_t_proyecto <- as.character(etapa$c_t_proyecto)
+View(etapa)
+names(etapa$gl_est_etapa)
+names(etapa$gl_est_etapa)
+factor(etapa$gl_est_etapa)
+unique(etapa$gl_est_etapa)
+data_gral_2$agno_etapa <- as.character(data_prueba$agno_etapa)
+prop.table(table(data_gral_2$agno_etapa, data_gral_2$etapas_agrupadas))
+tinytex::install_tinytex()
+tinytex::install_tinytex()
+tinytex::install_tinytex()
+\documentclass{article}
+\subsection{Descripción de la problemática}
+install.packages("tinytex")
+install.packages("tinytex")
+tinytex::install_tinytex()
+install.packages("tinytex")
+install.packages("tinytex")
+tinytex::install_tinytex()
+library(tinytex)
+---
+title: "Entrega 2 - Proyecto de Riesgo ANID"
+author: "Andrea Araya - Pablo Bellei - Luis Cuello - Gino Benedetti - Gabriela Ossa"
+date: "`r Sys.Date()`"
+output: pdf_document
+tinytex::install_tinytex()
+install.packages("tinytex")
+install.packages("tinytex")
+tinytex::install_tinytex()
+install.packages("tinytex")
+install.packages("xfun")
+install.packages("xfun")
+install.packages("tinytex")
+install.packages("tinytex")
+tinytex::install_tinytex()
+library(xfun)
+install.packages("tinytex")
+install.packages("tinytex")
+tinytex::install_tinytex()
+install.packages("devtools")
+library(devtools)
+install_version("rmarkdown",version=1.8)
+install.packages("tinytex")
+tinytex::install_tinytex()
+install.packages("xfun")
+library(xfun)
