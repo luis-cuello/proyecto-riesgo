@@ -76,3 +76,5 @@ ggplot(data = conteo_etapas_folio, mapping = aes(y = n)) +
 ## tabla proyectos
 
 reshape2::dcast(etapa_data_gral, cod_folio ~ gl_est_etapa)
+
+## hice un cambio
