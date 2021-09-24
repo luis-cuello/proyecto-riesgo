@@ -1,17 +1,10 @@
-install.packages("devtools")
 library(devtools)
-install_version("rmarkdown",version=1.8)
-
-install.packages("tinytex")
-tinytex::install_tinytex()
-install.packages("xfun")
 library(xfun)
 
 # Modelo de Riesgo --------------------------------------------------------
 
 library(tidyverse)
 library(readxl)
-
 
 bioetica = read_excel('Data/Bioetica_02.xlsx')
 disciplinas = read_excel('Data/Cambios_disciplinas_03.xlsx')
@@ -23,7 +16,7 @@ monto = read_excel('Data/Monto_solicitado_07.xlsx')
 situaciones_esp = read_excel('Data/Situacion_especiales_08.xlsx')
 
 etapa_data_gral = left_join(etapa, data_gral, by = 'cod_folio') %>% 
-  select(- f_fin_proy.y, -duracion.y)
+                  select(-f_fin_proy.y, -duracion.y)
 
 
 # Cuántos están en cumplimiento vs incumplimiento? ------------------------
@@ -41,7 +34,7 @@ rechazados <- c('SOLIC.INF.ADIC', 'PENDIENTE CONSE')
 
 data_prueba <- etapa_data_gral  %>% 
   filter(gl_est_etapa %in% aprobados | gl_est_etapa %in% en_proceso | gl_est_etapa %in% rechazados|
-         gl_est_etapa == 'EN EJECUCION' & f_fin_proy.x <= '2021-03-31')  %>% 
+           gl_est_etapa == 'EN EJECUCION' & f_fin_proy.x <= '2021-03-31')  %>% 
   mutate(etapas_agrupadas = case_when(gl_est_etapa %in% aprobados ~ 'APROBADO', 
                                       gl_est_etapa %in% en_proceso ~ 'EN PROCESO', 
                                       gl_est_etapa %in% rechazados ~ 'RECHAZADO', 
@@ -77,18 +70,16 @@ ggplot(data = conteo_etapas_folio, mapping = aes(y = n)) +
 
 reshape2::dcast(etapa_data_gral, cod_folio ~ gl_est_etapa)
 
+
 # Se agrega monto a etapa_data_gral ---------------------------------------
 
-monto
-unique(monto['cod_folio'])
-unique(etapa_data_gral['cod_folio'])
-
-ocurrencias <- data.frame(table(monto['cod_folio']))
-
-
-ocurrencias[ocurrencias$Freq > 1,]
-
-monto[monto$cod_folio %in% ocurrencias$cof_folio[ocurrencias$Freq > 1],]
-
 monto = rename(monto, 'monto_solicitado' = '(sum)')
-etapa_data_gral <- left_join(monto, etapa_data_gral, by = 'cod_folio')
+monto$c_est_proyecto = NULL
+monto$agno_concurso = NULL
+
+monto = monto %>%
+  group_by(cod_folio) %>%
+  summarize(monto_solicitado = mean(monto_solicitado, na.rm = T))
+
+etapa_monto = merge(etapa_data_gral, monto, by = 'cod_folio')
+etapa_monto = etapa_monto %>% group_by(cod_folio)
