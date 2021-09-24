@@ -1,6 +1,3 @@
-library(devtools)
-library(xfun)
-
 # Modelo de Riesgo --------------------------------------------------------
 
 library(tidyverse)
