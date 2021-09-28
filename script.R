@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+library(devtools)
+library(xfun)
+
+>>>>>>> main
 # Modelo de Riesgo --------------------------------------------------------
 
 library(tidyverse)
