@@ -457,3 +457,26 @@ round(prop.table(table(data_gral_2$agno_etapa, data_gral_2$etapas_agrupadas))*10
 ```
 
 
+## Modificaciones a base de datos bietica
+
+
+```{r echo = T, message = FALSE, warning = FALSE}
+
+glimpse(bioetica)
+colnames(bioetica)[2:3] <- c("universidad", "facultad")
+
+# columnas data_gral_2  = 11.004
+# columnas bioetica = 6010
+data_gral_2$cod_folio <- as.numeric(data_gral_2$cod_folio)
+
+a <- inner_join(data_gral_2, bioetica, by = "cod_folio")
+
+# columnas del cruce : 3.855 -> no todos los proyectos se involucran con la bioética
+
+# ---> no se pueden correr modelos con datos vacíos y no podemos rellenar los faltantes 
+# con datos porque no es sano rellenar casi el 70% de la data restante.
+
+```
+
+
+
